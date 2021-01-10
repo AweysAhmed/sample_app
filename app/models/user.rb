@@ -37,7 +37,7 @@ class User < ApplicationRecord
     remember_digest || remember
   end
 
-  # Returns true if the given token matches the digest
+  # Returns true if the given token matches the digestAvailabilityRul
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
@@ -73,6 +73,12 @@ class User < ApplicationRecord
   # Returns true if a password reset has expired
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  # Defines a proto-feed
+  # See "Following users" for the full implementation
+  def feed
+    Micropost.where("user_id = ?", id)
   end
 
   private
