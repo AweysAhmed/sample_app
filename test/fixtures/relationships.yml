@@ -1,0 +1,15 @@
+one:
+  follower: aweys
+  followed: lana
+
+two:
+  follower: aweys
+  followed: malory
+
+three:
+  follower: lana
+  followed: aweys
+
+four:
+  follower: archer
+  followed: aweys
